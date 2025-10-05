@@ -4,6 +4,7 @@
     alt="Gitmoji"
   />
 </a>
+[![Coverage Status](https://coveralls.io/repos/github/mikevdberge/jarversion-cli/badge.svg?branch=main)](https://coveralls.io/github/mikevdberge/jarversion-cli?branch=main)
 
 # Introduction 
 This application was created to support Bigfix Inventory to determine the version number or md5 hash of a jar file
