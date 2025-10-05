@@ -4,6 +4,7 @@
     alt="Gitmoji"
   />
 </a>
+
 [![Coverage Status](https://coveralls.io/repos/github/mikevdberge/jarversion-cli/badge.svg?branch=main)](https://coveralls.io/github/mikevdberge/jarversion-cli?branch=main)
 
 # Introduction 
