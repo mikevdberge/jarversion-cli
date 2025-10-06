@@ -13,18 +13,16 @@ This application was created to support Bigfix Inventory to determine the versio
 # Getting Started
 Just download the application file for your operating system and run it, it does not have any dependencies
 
-### Parameters
+## Flags
 
-#### `--json-file` - file name of the JSON formated output file.
-#### `--text-file` - file name of TEXT formated output file.
-
-### Options
-
-#### `--json` - Show the version number in JSON format.
-#### `--md5` - Show the MD5 hash of the file 
-#### `--help` - Show context-sensitive help.
-#### `--version` - Show context-sensitive help.
-
+| Flag | Description | Default |
+| --- | --- | --- |
+| <code class="text-nowrap">--json</code> | Show the version number in JSON format. |  |
+| <code class="text-nowrap">--json-file</code> <code class="text-nowrap">...<code class="text-nowrap"> | Write the version information in JSON formated output file. |  |
+| <code class="text-nowrap">--text-file</code> <code class="text-nowrap">...<code class="text-nowrap"> | Write the version information in a text file. |  |
+| <code class="text-nowrap">--md5</code> | Show the MD5 hash of the file | |
+| <code class="text-nowrap">--help</code> | Show context-sensitive help. |  |
+| <code class="text-nowrap">--version</code> | Show application version. |  |
 
 # Build and Test
 Run the build_all.sh to build the jarversion program.
