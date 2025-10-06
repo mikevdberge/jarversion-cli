@@ -13,17 +13,17 @@ This application was created to support Bigfix Inventory to determine the versio
 # Getting Started
 Just download the application file for your operating system and run it, it does not have any dependencies
 
-## Parameters
+### Parameters
 
-### `--json-file` - file name of the JSON formated output file.
-### `--text-file` - file name of TEXT formated output file.
+#### `--json-file` - file name of the JSON formated output file.
+#### `--text-file` - file name of TEXT formated output file.
 
-## Options
+### Options
 
-### `--json` - Show the version number in JSON format.
-### `--md5` - Show the MD5 hash of the file 
-### `--help` - Show context-sensitive help.
-### `--version` - Show context-sensitive help.
+#### `--json` - Show the version number in JSON format.
+#### `--md5` - Show the MD5 hash of the file 
+#### `--help` - Show context-sensitive help.
+#### `--version` - Show context-sensitive help.
 
 
 # Build and Test
