@@ -111,7 +111,7 @@ sboms:
     # - binary:     binaries output from the build stage
     #
     # Default: 'archive'.
-    artifacts: any
+    artifacts: binary
 
     # IDs of the artifacts to catalog.
     #
