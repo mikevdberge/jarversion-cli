@@ -27,3 +27,6 @@ Just download the application file for your operating system and run it, it does
 # Build and Test
 Run the build_all.sh to build the jarversion program.
 To test the program just run go test in the src directory
+
+# SBOM
+cyclonedx-gomod app -json -output dist/jarversion-cli.bom.json -packages -files -licenses -main cmd/jarversion
