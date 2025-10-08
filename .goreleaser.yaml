@@ -113,23 +113,93 @@ sboms:
     # Default: 'archive'.
     artifacts: binary
 
-    # IDs of the artifacts to catalog.
-    #
-    # If `artifacts` is "source" or "any" then this fields has no effect.
-    #ids:
-    #  - foo
-    #  - bar
-
     # Whether this SBOM configuration is disabled.
     #
     # Default: 'true'.
     # Templates: allowed.
     # Since: v2.10
     disable: false
-
+    
 release:
+  # Repo in which the release will be created.
+  # Default: extracted from the origin remote URL or empty if its private hosted.
+  #github:
+  #  owner: user
+  #  name: repo
+
+
+  # Whether to remove existing draft releases with the same name before creating
+  # a new one.
+  #
+  # Only effective if `draft` is set to true.
+  # Available only for GitHub.
+  replace_existing_draft: true
+
+  # Whether to use an existing draft release as the target release.
+  #
+  # Available only for GitHub.
+  # Since: v2.5.
+  use_existing_draft: true
+
+  # Whether to remove an artifact that already exists.
+  #
+  # Available only for GitHub.
+  # This might be a bit expensive (rate-limiting speaking), so it is only done
+  # when the upload of an artifact fails with a 422 (which means it already
+  # exists in the release).
+  # We then grab the list of artifacts from the release, and delete the file
+  # that matches the one we're trying to upload.
+  # GoReleaser will then retry its upload.
+  replace_existing_artifacts: true
+
+  # Useful if you want to delay the creation of the tag in the remote.
+  # You can create the tag locally, but not push it, and run GoReleaser.
+  # It'll then set the `target_commitish` portion of the GitHub release to the
+  # value of this field.
+  # Only works on GitHub.
+  #
+  # Default: ''.
+  # Templates: allowed.
+  target_commitish: "{{ .Commit }}"
+
+  # This allows to change which tag GitHub will create.
+  # Usually you'll use this together with `target_commitish`, or if you want to
+  # publish a binary from a monorepo into a public repository somewhere, without
+  # the tag prefix.
+  #
+  # Note: if you change this, you might want to change 'url_template' in the
+  # subsequent publishers and announcers.
+  #
+  # This feature is only available in GoReleaser Pro.
+  # Default: '{{ .PrefixedCurrentTag }}'.
+  # Templates: allowed.
+  tag: "{{ .CurrentTag }}"
+
+  # What to do with the release notes in case there the release already exists.
+  #
+  # Valid options are:
+  # - `keep-existing`: keep the existing notes
+  # - `append`: append the current release notes to the existing notes
+  # - `prepend`: prepend the current release notes to the existing notes
+  # - `replace`: replace existing notes
+  #
+  # Default: `keep-existing`.
+  mode: append
+
+  # Header for the release body.
+  #
+  # Templates: allowed.
+  header: |
+    ## Some title ({{ .Date }})
+
+    Welcome to this new release!
+
+
+  # Upload metadata.json and artifacts.json to the release as well.
+  include_meta: true
+  
+
   footer: >-
 
     ---
-
-    Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
+    Those were the changes on {{ .Tag }}!
